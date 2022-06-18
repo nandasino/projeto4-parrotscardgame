@@ -1,0 +1,12 @@
+body{
+    background-color: #EEF9BF;
+}
+body > h1{
+    color: #75B79E;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 66px;
+    letter-spacing: -0.004em;
+}
