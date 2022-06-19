@@ -1,4 +1,8 @@
-const card_versions = [
+
+let number_of_cards;
+let quantidade_de_cartas;
+let div_de_cartas = document.querySelector('.memory-game');
+let card_versions = [
     'imagens/bobrossparrot.gif',
     'imagens/explodyparrot.gif',
     'imagens/fiestaparrot.gif', 
@@ -8,9 +12,7 @@ const card_versions = [
     'imagens/tripletsparrot.gif',
     'imagens/unicornparrot.gif'];
 
-let number_of_cards=0;
-let numer_of_plays=0;
-let number_of_pairs=0;
+startGame();
 
 function comparador(){
     return Math.random() - 0.5;
@@ -23,7 +25,7 @@ function startGame(){
     } 
     card_versions= card_versions.sort(comparador);
     for (let i=0; i<number_of_cards/2;i++) {
-        document.querySelector('memory-game').innerHTML +=`
+        div_de_cartas.innerHTML +=`
         <div class="card">
         <div class="front background"><img src="imagens/front.png"/></div>
         <div class="back background"><${card_versions[i]}></div>
@@ -32,5 +34,17 @@ function startGame(){
         <div class="front background"><img src="imagens/front.png"/></div>
         <div class="back background"><${card_versions[i]}></div>
         </div>`
+    }
+    quantidade_de_cartas = document.querySelectorAll('.card');
+    misturarCartas();
+}
+function misturarCartas(){
+    let cartas_resultantes = [];
+    for (let i =0; i <quantidade_de_cartas.length;i++){
+        cartas_resultantes.push(quantidade_de_cartas[i].innerHTML);
+        cartas_resultantes= cartas_resultantes.sort(comparador);
+    }
+    for (let j= 0; j<quantidade_de_cartas.length;j++){
+        quantidade_de_cartas[j].innerHTML = cartas_resultantes[j];
     }
 }
