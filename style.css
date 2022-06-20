@@ -43,6 +43,18 @@ body > h1{
     align-items: center;
     box-sizing: border-box;
     border-radius: 5px;
+    backface-visibility: hidden;
+    transition: all .5s;
+    transform-style: preserve-3d;
+}
+.back{
+    transform: rotateY(180deg);
+}
+.virarpratras{
+    transform: rotateY(0deg);
+}
+.virarprafrente{
+    transform: rotateY(-180deg);
 }
 img{
     width: 100px;

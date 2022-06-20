@@ -26,13 +26,13 @@ function startGame(){
     card_versions= card_versions.sort(comparador);
     for (let i=0; i<number_of_cards/2;i++) {
         div_de_cartas.innerHTML +=`
-        <div class="card">
+        <div class="card" onclick="selecionaCarta(this)">
         <div class="front background"><img src="imagens/front.png"/></div>
-        <div class="back background"><${card_versions[i]}></div>
+        <div class="back background"><img src="${card_versions[i]}"/></div>
         </div>
-        <div class="card">
+        <div class="card" onclick="selecionaCarta(this)">
         <div class="front background"><img src="imagens/front.png"/></div>
-        <div class="back background"><${card_versions[i]}></div>
+        <div class="back background"><img src="${card_versions[i]}"/></div>
         </div>`
     }
     quantidade_de_cartas = document.querySelectorAll('.card');
@@ -47,4 +47,12 @@ function misturarCartas(){
     for (let j= 0; j<quantidade_de_cartas.length;j++){
         quantidade_de_cartas[j].innerHTML = cartas_resultantes[j];
     }
+}
+const virarCarta= function(carta1,carta2){
+    carta1.querySelector('.front').classList.toggle('virarprafrente');
+    carta1.querySelector('.back').classList.toggle('virarpratras');
+    carta2.querySelector('front').classList.toggle('virarprafrente');
+    carta2.querySelector('.back').classList.toggle('virarpratras');
+    primeira_escolhida= undefined;
+    segunda_escolhida = undefined;
 }
