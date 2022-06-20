@@ -2,6 +2,8 @@
 let number_of_cards;
 let contador=0;
 let quantidade_de_cartas;
+let segunda_escolhida;
+let primeira_escolhida;
 let div_de_cartas = document.querySelector('.memory-game');
 let card_versions = [
     'imagens/bobrossparrot.gif',
@@ -52,16 +54,16 @@ function misturarCartas(){
 const virarCarta= function(carta1,carta2){
     carta1.querySelector('.front').classList.toggle('virarprafrente');
     carta1.querySelector('.back').classList.toggle('virarpratras');
-    carta2.querySelector('front').classList.toggle('virarprafrente');
+    carta2.querySelector('.front').classList.toggle('virarprafrente');
     carta2.querySelector('.back').classList.toggle('virarpratras');
     primeira_escolhida= undefined;
     segunda_escolhida = undefined;
 }
 
 function selecionaCarta(e){
-    if (e.querySelector('.front').classList.contains('virarprafrente')== false && segunda_escolhida==undefined){
+    if (e.querySelector('.front').classList.contains('virarprafrente')=== false && segunda_escolhida===undefined){
         contador++;
-        if (primeira_escolhida == undefined){
+        if (primeira_escolhida === undefined){
             primeira_escolhida = e;
             primeira_escolhida.querySelector('.front').classList.toggle('virarprafrente');
             primeira_escolhida.querySelector('.back').classList.toggle('virarpratras');
@@ -70,7 +72,7 @@ function selecionaCarta(e){
             segunda_escolhida = e;
             segunda_escolhida.querySelector('.front').classList.toggle('virarprafrente');
             segunda_escolhida.querySelector('.back').classList.toggle('virarpratras');
-            if (primeira_escolhida.innerHTML==segunda_escolhida.innerHTML){
+            if (primeira_escolhida.innerHTML===segunda_escolhida.innerHTML){
                 primeira_escolhida=undefined;
                 segunda_escolhida=undefined;
                 acabarJogo++;
