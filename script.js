@@ -1,5 +1,6 @@
 
 let number_of_cards;
+let contador=0;
 let quantidade_de_cartas;
 let div_de_cartas = document.querySelector('.memory-game');
 let card_versions = [
@@ -55,4 +56,29 @@ const virarCarta= function(carta1,carta2){
     carta2.querySelector('.back').classList.toggle('virarpratras');
     primeira_escolhida= undefined;
     segunda_escolhida = undefined;
+}
+
+function selecionaCarta(e){
+    if (e.querySelector('.front').classList.contains('virarprafrente')== false && segunda_escolhida==undefined){
+        contador++;
+        if (primeira_escolhida == undefined){
+            primeira_escolhida = e;
+            primeira_escolhida.querySelector('.front').classList.toggle('virarprafrente');
+            primeira_escolhida.querySelector('.back').classList.toggle('virarpratras');
+        }
+        else{
+            segunda_escolhida = e;
+            segunda_escolhida.querySelector('.front').classList.toggle('virarprafrente');
+            segunda_escolhida.querySelector('.back').classList.toggle('virarpratras');
+            if (primeira_escolhida.innerHTML==segunda_escolhida.innerHTML){
+                primeira_escolhida=undefined;
+                segunda_escolhida=undefined;
+                acabarJogo++;
+            }
+            else{
+                setTimeout(virarCarta, 1000,primeira_escolhida,segunda_escolhida);
+            }
+        }
+        setTimeout(acabarJogo,700);
+    }
 }
