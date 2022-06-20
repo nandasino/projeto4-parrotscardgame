@@ -4,6 +4,7 @@ let contador=0;
 let quantidade_de_cartas;
 let segunda_escolhida;
 let primeira_escolhida;
+let verifica_pra_acabar=0;
 let div_de_cartas = document.querySelector('.memory-game');
 let card_versions = [
     'imagens/bobrossparrot.gif',
@@ -11,7 +12,6 @@ let card_versions = [
     'imagens/fiestaparrot.gif', 
     'imagens/metalparrot.gif',
     'imagens/revertitparrot.gif', 
-    'imagens/tripletsparrot.gif',
     'imagens/tripletsparrot.gif',
     'imagens/unicornparrot.gif'];
 
@@ -75,12 +75,18 @@ function selecionaCarta(e){
             if (primeira_escolhida.innerHTML===segunda_escolhida.innerHTML){
                 primeira_escolhida=undefined;
                 segunda_escolhida=undefined;
-                acabarJogo++;
+                verifica_pra_acabar++;
             }
             else{
                 setTimeout(virarCarta, 1000,primeira_escolhida,segunda_escolhida);
             }
         }
-        setTimeout(acabarJogo,700);
+        setTimeout(acabarJogo,1000);
+    }
+}
+function acabarJogo(){
+    if (verifica_pra_acabar==number_of_cards/2){
+        console.log('chegou aqui');
+        alert(`Você ganhou em ${contador} rodadas`);
     }
 }

@@ -31,8 +31,6 @@ body > h1{
     align-items: center;
     box-sizing: border-box;
     border-radius: 5px;
-    background-color: #A7E9AF;
-    border: 1px solid #99CEA8;
     margin: 20px;
 }
 .background{
@@ -46,6 +44,9 @@ body > h1{
     backface-visibility: hidden;
     transition: all .5s;
     transform-style: preserve-3d;
+    background-color: #A7E9AF;
+    border: 1px solid #99CEA8;
+    position: absolute;
 }
 .back{
     transform: rotateY(180deg);
@@ -58,4 +59,5 @@ body > h1{
 }
 img{
     width: 100px;
+    height: 100px;
 }
